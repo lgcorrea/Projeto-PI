@@ -187,8 +187,6 @@ public class Vagas {
 
         selecionaVaga();
 
-        continuidadeVagas();
-
     }
 
     public static void MostrarVagaEspecifica() {
@@ -223,14 +221,17 @@ public class Vagas {
     public static void selecionaVaga() {
 
         System.out.println("Digite o numero da vaga");
+        
+            int n = Menu.leia.nextInt();
+        
+        for (int i = 0; i < infoVagas.length; i++) {           
 
-        for (int i = 0; i < infoVagas[i].codigoVaga; i++) {
+            int p = infoVagas[i].codigoVaga;
 
-            String n = Menu.leia.next();
+            System.out.println(p);
+            System.out.println(infoVagas[p].codigoVaga);
 
-            int posicao = infoVagas[i].codigoVaga;
-
-            if (posicao == infoVagas[i].codigoVaga) {
+            if (n == i) {
                 System.out.println("Descrição: " + infoVagas[i].descricao);
                 System.out.println("Empresa: " + infoVagas[i].empresa);
                 System.out.println("Local : " + infoVagas[i].local);
