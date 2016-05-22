@@ -23,11 +23,11 @@ public class Vagas {
 
     public static void vPadrao() {
 
-        infoVagas = new vetorVagas[5];
+        infoVagas = new vetorVagas[6];
 
         //CADASTRO PADRÃO SOLICITADO NO PROJETO
         // INSERE 3 VAGAS NAS 3 PRIMEIRAS POSIÇÕES DO VETOR
-        for (int i = 0; i < infoVagas.length; i++) {
+        for (int i = 0; i == 0; i++) {
 
             infoVagas[i] = new vetorVagas();
 
@@ -40,7 +40,9 @@ public class Vagas {
             System.out.println("Concluido");
         }
 
-        for (int i = 1; i < infoVagas.length; i++) {
+        for (int i = 1; i == 1; i++) {
+
+            infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 2;
             infoVagas[i].descricao = "Faxina";
@@ -52,7 +54,9 @@ public class Vagas {
 
         }
 
-        for (int i = 2; i < infoVagas.length; i++) {
+        for (int i = 2; i == 2; i++) {
+
+            infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 1;
             infoVagas[i].descricao = "Faxina";
@@ -157,9 +161,11 @@ public class Vagas {
          *
          */
         System.out.println("Detalhes da Vaga: ");
-        for (int i = 0; i < infoVagas.length; i++) {
 
-            if (infoVagas[i].disp == true) {
+        for (int i = 1; i < infoVagas.length; i++) {
+
+            // System.out.println("Vaga " + infoVagas[i].codigoVaga);
+            if (infoVagas[i].valor != 0) {
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
                 System.out.println("Descrição : " + infoVagas[i].descricao);
                 System.out.println("Empresa : " + infoVagas[i].empresa);
@@ -170,7 +176,9 @@ public class Vagas {
                 }
             }
         }
+
         selecionaVaga();
+
         continuidadeVagas();
 
     }
@@ -207,10 +215,10 @@ public class Vagas {
     public static void selecionaVaga() {
 
         System.out.println("Digite o numero da vaga");
-        int n = Menu.leia.nextInt();
-        int i = 0;
 
-        while (n != infoVagas[i].codigoVaga) {
+        for (int i = 1; i < infoVagas.length; i++) {
+
+            int n = Menu.leia.nextInt();
 
             if (n == infoVagas[i].codigoVaga) {
                 System.out.println("Descrição: " + infoVagas[i].descricao);
@@ -218,11 +226,13 @@ public class Vagas {
                 System.out.println("Local : " + infoVagas[i].local);
                 System.out.println("Salario : " + infoVagas[i].valor);
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
+                        
             } else {
                 System.out.println("Vaga Invalida, tente novamente : ");
             }
+            
+            
 
-            i++;
         }
 
         System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
@@ -230,12 +240,12 @@ public class Vagas {
 
         switch (resposta) {
             case "s": {
-                for (int j = 0; j < infoVagas.length; j++) {
+                for (int j = 1; j < infoVagas.length; j++) {
                     infoVagas[j].disp = false;
 
                 }
 
-                for (int j = 0; j < infoVagas.length; j++) {
+                for (int j = 1; j < infoVagas.length; j++) {
                     System.out.println(infoVagas[j].disp);
                 }
             }
