@@ -58,7 +58,7 @@ public class Vagas {
 
             infoVagas[i] = new vetorVagas();
 
-            infoVagas[i].codigoVaga = 1;
+            infoVagas[i].codigoVaga = 3;
             infoVagas[i].descricao = "Faxina";
             infoVagas[i].empresa = "Senac";
             infoVagas[i].local = "Jurubatuba";
@@ -66,6 +66,10 @@ public class Vagas {
             infoVagas[i].disp = true;
             System.out.println("Concluido");
 
+        }
+
+        for (int i = 3; i < infoVagas.length; i++) {
+            infoVagas[i] = new vetorVagas();
         }
         //mostrarVagas();
         //Menu.menu();
@@ -161,17 +165,21 @@ public class Vagas {
          *
          */
         System.out.println("Detalhes da Vaga: ");
+        int i = 0;
 
-        for (int i = 1; i < infoVagas.length; i++) {
+        int n = Vagas.infoVagas.length;
+        System.out.println(n);
 
-            // System.out.println("Vaga " + infoVagas[i].codigoVaga);
-            if (infoVagas[i].valor != 0) {
-                System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-                System.out.println("Descrição : " + infoVagas[i].descricao);
-                System.out.println("Empresa : " + infoVagas[i].empresa);
-                System.out.println("Localização :" + infoVagas[i].local);
-                System.out.println("Salário : " + infoVagas[i].valor);
-                if (infoVagas[i].disp == true) {
+        for (int j = 0; j < infoVagas.length; j++) {
+
+            if (infoVagas[j].disp != false) {
+                // System.out.println("Vaga " + infoVagas[i].codigoVaga);
+                System.out.println("Código Vaga : " + infoVagas[j].codigoVaga);
+                System.out.println("Descrição : " + infoVagas[j].descricao);
+                System.out.println("Empresa : " + infoVagas[j].empresa);
+                System.out.println("Localização :" + infoVagas[j].local);
+                System.out.println("Salário : " + infoVagas[j].valor);
+                if (infoVagas[j].disp == true) {
                     System.out.println("Vaga Disponivel");
                 }
             }
@@ -216,22 +224,22 @@ public class Vagas {
 
         System.out.println("Digite o numero da vaga");
 
-        for (int i = 1; i < infoVagas.length; i++) {
+        for (int i = 0; i < infoVagas[i].codigoVaga; i++) {
 
-            int n = Menu.leia.nextInt();
+            String n = Menu.leia.next();
 
-            if (n == infoVagas[i].codigoVaga) {
+            int posicao = infoVagas[i].codigoVaga;
+
+            if (posicao == infoVagas[i].codigoVaga) {
                 System.out.println("Descrição: " + infoVagas[i].descricao);
                 System.out.println("Empresa: " + infoVagas[i].empresa);
                 System.out.println("Local : " + infoVagas[i].local);
                 System.out.println("Salario : " + infoVagas[i].valor);
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-                        
+
             } else {
                 System.out.println("Vaga Invalida, tente novamente : ");
             }
-            
-            
 
         }
 

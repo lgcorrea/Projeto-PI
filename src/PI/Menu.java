@@ -6,7 +6,7 @@ public class Menu {
 
     
     static Scanner leia = new Scanner(System.in);
-    static int n = 0;
+    
        
     public static void menu() {
         
@@ -37,6 +37,8 @@ public class Menu {
          //colocar na tela após a tela de login
          Vagas.vPadrao();
          menu();
+         
+                 
          
     }
 
