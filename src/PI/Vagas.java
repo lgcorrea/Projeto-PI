@@ -84,29 +84,33 @@ public class Vagas {
          *
          * Cadastra a vaga.
          */
-        for (int i = 3; i < infoVagas.length; i++) {
+        for (int i = 0; i <= infoVagas.length; i++) {
 
-            infoVagas[i] = new vetorVagas();
+            if (infoVagas[i].codigoVaga == 0) {
 
-            System.out.println("Código da Vaga");
-            infoVagas[i].codigoVaga = Menu.leia.nextInt();
-            Menu.leia.nextLine();
-            System.out.print("Informe a descrição da Vaga :");
-            infoVagas[i].descricao = Menu.leia.nextLine();
-            System.out.println("Informa o nome da Empresa : ");
-            infoVagas[i].empresa = Menu.leia.next();
-            System.out.print("Salário : ");
-            infoVagas[i].valor = Menu.leia.nextFloat();
-            System.out.println("Informe a localização : ");
-            infoVagas[i].local = Menu.leia.next();
+                infoVagas[i] = new vetorVagas();
 
-            //SETA VAGA DISPONIVEL
-            infoVagas[i].disp = true;
-            if (infoVagas[i].disp == true) {
-                System.out.println("Vaga Disponivel");
+                System.out.println("Código da Vaga");
+                infoVagas[i].codigoVaga = Menu.leia.nextInt();
+                Menu.leia.nextLine();
+                System.out.print("Informe a descrição da Vaga :");
+                infoVagas[i].descricao = Menu.leia.nextLine();
+                System.out.println("Informa o nome da Empresa : ");
+                infoVagas[i].empresa = Menu.leia.next();
+                System.out.print("Salário : ");
+                infoVagas[i].valor = Menu.leia.nextFloat();
+                System.out.println("Informe a localização : ");
+                infoVagas[i].local = Menu.leia.next();
 
-            } else {
-                System.out.println("Vaga Indisponivel");
+                //SETA VAGA DISPONIVEL
+                infoVagas[i].disp = true;
+                if (infoVagas[i].disp == true) {
+                    System.out.println("Vaga Disponivel");
+
+                } else {
+                    System.out.println("Vaga Indisponivel");
+                }
+                cadastrarNovamente();
             }
         }
         /**
@@ -114,7 +118,6 @@ public class Vagas {
          * cadastro.
          */
 
-        cadastrarNovamente();
     }
 
     public static void cadastrarNovamente() {
@@ -185,7 +188,7 @@ public class Vagas {
             }
         }
 
-        selecionaVaga();
+        continuidadeVagas();
 
     }
 
@@ -221,10 +224,10 @@ public class Vagas {
     public static void selecionaVaga() {
 
         System.out.println("Digite o numero da vaga");
-        
-            int n = Menu.leia.nextInt();
-        
-        for (int i = 0; i < infoVagas.length; i++) {           
+
+        int n = Menu.leia.nextInt();
+
+        for (int i = 0; i < infoVagas.length; i++) {
 
             int p = infoVagas[i].codigoVaga;
 
