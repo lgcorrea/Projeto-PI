@@ -161,28 +161,38 @@ public class Vagas {
 
     public static void mostrarVagas() {
         /**
-         * Mostra Vagas Cadastradas.
-         *
-         * FAZER ALGORITMO PARA VERIFICAR SE VAGA QUE IRA CADASTRAR JA EXISTE OU
-         * NÃO
-         *
+         * Mostra Pequenas informações das vagas Cadastradas.
          */
+        System.out.println("Resumo de Vagas : ");
+
+        for (int i = 0; i < infoVagas.length; i++) {
+
+            if (infoVagas[i].disp != false) {
+                System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
+                System.out.println("Descrição : " + infoVagas[i].descricao);
+                System.out.println("Localização :" + infoVagas[i].local);
+
+            }
+
+        }
+
+    }
+
+    public static void MostrarVagaCompleta() {
+
+        // MOSTRA A VAGA COMPLETA 
         System.out.println("Detalhes da Vaga: ");
-        int i = 0;
 
-        int n = Vagas.infoVagas.length;
-        System.out.println(n);
+        for (int i = 0; i < infoVagas.length; i++) {
 
-        for (int j = 0; j < infoVagas.length; j++) {
-
-            if (infoVagas[j].disp != false) {
+            if (infoVagas[i].disp != false) {
                 // System.out.println("Vaga " + infoVagas[i].codigoVaga);
-                System.out.println("Código Vaga : " + infoVagas[j].codigoVaga);
-                System.out.println("Descrição : " + infoVagas[j].descricao);
-                System.out.println("Empresa : " + infoVagas[j].empresa);
-                System.out.println("Localização :" + infoVagas[j].local);
-                System.out.println("Salário : " + infoVagas[j].valor);
-                if (infoVagas[j].disp == true) {
+                System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
+                System.out.println("Descrição : " + infoVagas[i].descricao);
+                System.out.println("Empresa : " + infoVagas[i].empresa);
+                System.out.println("Localização :" + infoVagas[i].local);
+                System.out.println("Salário : " + infoVagas[i].valor);
+                if (infoVagas[i].disp == true) {
                     System.out.println("Vaga Disponivel");
                 }
             }
@@ -192,15 +202,11 @@ public class Vagas {
 
     }
 
-    public static void MostrarVagaEspecifica() {
-
-    }
-
     public static void continuidadeVagas() {
 
         System.out.println("O que Deseja fazer?");
         System.out.println("1 - CADASTRAR VAGAS");
-        System.out.println("2 - SELECIONAR VAGA");
+        System.out.println("2 - DETALHAR VAGA");
         System.out.println("3 - VOLTAR PARA MENU PRINCIPAL");
 
         int opcao = Menu.leia.nextInt();
@@ -210,7 +216,7 @@ public class Vagas {
                 cadastrarVagas();
                 break;
             case 2:
-                selecionaVaga();
+                MostrarVagaCompleta();
                 break;
             case 3:
                 Menu.menu();
@@ -225,44 +231,34 @@ public class Vagas {
 
         System.out.println("Digite o numero da vaga");
 
-        int n = Menu.leia.nextInt();
+        int vaga = Menu.leia.nextInt();
 
-        for (int i = 0; i < infoVagas.length; i++) {
+        for (int i = 0; i < infoVagas.length; i = i + 1) {
 
-            int p = infoVagas[i].codigoVaga;
-
-            System.out.println(p);
-            System.out.println(infoVagas[p].codigoVaga);
-
-            if (n == i) {
+            if (vaga == i) {
                 System.out.println("Descrição: " + infoVagas[i].descricao);
                 System.out.println("Empresa: " + infoVagas[i].empresa);
                 System.out.println("Local : " + infoVagas[i].local);
                 System.out.println("Salario : " + infoVagas[i].valor);
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
 
+                System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
+                String resposta = Menu.leia.next();
+
+                switch (resposta) {
+                    case "s": {
+                        infoVagas[i].disp = false;
+                        System.out.println(infoVagas[i].disp);
+                    }
+
+                    break;
+                }
+                Menu.menu();
             } else {
                 System.out.println("Vaga Invalida, tente novamente : ");
             }
 
         }
 
-        System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
-        String resposta = Menu.leia.next();
-
-        switch (resposta) {
-            case "s": {
-                for (int j = 1; j < infoVagas.length; j++) {
-                    infoVagas[j].disp = false;
-
-                }
-
-                for (int j = 1; j < infoVagas.length; j++) {
-                    System.out.println(infoVagas[j].disp);
-                }
-            }
-
-        }
     }
-
 }
