@@ -10,7 +10,6 @@ import java.util.Scanner;
  */
 public class Inicio {
 
-
     //Declarações publicas utlizadas em funções ou classe
     public int resp = 0;
     public static String pass, user = "";
@@ -18,16 +17,17 @@ public class Inicio {
 
     /**
      * Chama as funções
+     *
      * @param args
      */
     public static void main(String[] args) {
+        Vagas.vPadrao();
         principal();
-        login();
+        //login();
     }
-    
+
     /**
-     * Função principal
-     * Direciona o usuário
+     * Função principal Direciona o usuário
      */
     static void principal() {
         layout();
@@ -36,9 +36,9 @@ public class Inicio {
         System.out.println(" 0. Sair                      ");
         int resp = teclado.nextInt();
         layout();
-        
+
         /**
-         *Verificação Principal do Login
+         * Verificação Principal do Login
          */
         switch (resp) {
             case 1:

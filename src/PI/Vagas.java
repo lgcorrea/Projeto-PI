@@ -74,7 +74,6 @@ public class Vagas {
             infoVagas[i] = new vetorVagas();
         }
         //mostrarVagas();
-        Menu.menu();
 
     }
 
@@ -172,7 +171,7 @@ public class Vagas {
 
         for (int i = 0; i < infoVagas.length; i++) {
 
-            if (infoVagas[i].disp == true) {
+            if (infoVagas[i].disp != false) {
                 System.out.println("Código Vaga: " + infoVagas[i].codigoVaga);
                 System.out.println("Descrição: " + infoVagas[i].descricao);
                 System.out.println("Localização:" + infoVagas[i].local);
@@ -218,7 +217,7 @@ public class Vagas {
 
         for (int i = 0; i < infoVagas.length; i++) {
             if (vaga == infoVagas[i].codigoVaga) {
-                if (infoVagas[i].disp == true) {
+                if (infoVagas[i].disp != false) {
                     System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
                     System.out.println("Descrição : " + infoVagas[i].descricao);
                     System.out.println("Empresa : " + infoVagas[i].empresa);
@@ -233,6 +232,42 @@ public class Vagas {
         }
         continuidadeVagas();
 
+    }
+
+    public static void selecionaVaga() {
+
+        System.out.println("Digite o numero da vaga");
+
+        int vaga = Menu.leia.nextInt();
+
+        for (int i = 0; i < infoVagas.length; i++) {
+
+            if (vaga == infoVagas[i].codigoVaga) {
+                System.out.println("Descrição: " + infoVagas[i].descricao);
+                System.out.println("Empresa: " + infoVagas[i].empresa);
+                System.out.println("Local : " + infoVagas[i].local);
+                System.out.println("Salario : " + infoVagas[i].valor);
+                System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
+                layout();
+
+            }
+        }
+        System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
+        String resposta = Menu.leia.next();
+
+        switch (resposta) {
+            case "s": {
+                for (int i = 0; i < infoVagas.length; i++) {
+                    if (vaga == infoVagas[i].codigoVaga) {
+                        infoVagas[i].disp = false;
+                        System.out.println(infoVagas[i].disp);
+                    };
+                }
+            }
+
+            break;
+        }
+        Menu.menu();
     }
 
     public static void continuidadeVagas() {
@@ -254,7 +289,7 @@ public class Vagas {
                 selecionaVaga();
                 break;
             case 3:
-                MostrarVagaCompleta();
+                mostrarVagas();
                 break;
             case 0:
                 System.exit(opcao);
@@ -264,38 +299,4 @@ public class Vagas {
             }
         }
     }
-
-    public static void selecionaVaga() {
-
-        System.out.println("Digite o numero da vaga");
-
-        int vaga = Menu.leia.nextInt();
-
-        for (int i = 0; i < infoVagas.length; i++) {
-
-            if (vaga == infoVagas[i].codigoVaga) {
-                System.out.println("Descrição: " + infoVagas[i].descricao);
-                System.out.println("Empresa: " + infoVagas[i].empresa);
-                System.out.println("Local : " + infoVagas[i].local);
-                System.out.println("Salario : " + infoVagas[i].valor);
-                System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-                layout();
-                
-
-            }
-        }
-        System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
-        String resposta = Menu.leia.next();
-
-        switch (resposta) {
-            case "s": {
-                infoVagas[vaga].disp = false;
-                System.out.println(infoVagas[vaga].disp);
-            }
-
-            break;
-        }
-        Menu.menu();
-    }
-
 }

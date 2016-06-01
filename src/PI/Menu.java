@@ -9,7 +9,8 @@ public class Menu {
     static Scanner leia = new Scanner(System.in);
     
        
-    public static void menu() {
+    public static void menu() {       
+        
         
         layout();
         System.out.println("O que deseja fazer?");
