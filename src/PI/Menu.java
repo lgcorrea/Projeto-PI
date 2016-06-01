@@ -44,7 +44,7 @@ public class Menu {
          
          //colocar na tela após a tela de login
          //Vagas.vPadrao();
-         //menu();
+         
 //         Vagas.cadastrarVagas();
 //         Vagas.mostrarVagas();
          
