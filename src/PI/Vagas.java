@@ -5,6 +5,8 @@
  */
 package PI;
 
+import static PI.Layout.layout;
+
 /**
  *
  * @author GUSTAVO
@@ -90,17 +92,18 @@ public class Vagas {
 
                 infoVagas[i] = new vetorVagas();
 
-                System.out.println("Código da Vaga");
+                System.out.print("Código da Vaga: ");
                 infoVagas[i].codigoVaga = Menu.leia.nextInt();
                 Menu.leia.nextLine();
-                System.out.print("Informe a descrição da Vaga :");
+                System.out.print("Informe a descrição da Vaga: ");
                 infoVagas[i].descricao = Menu.leia.nextLine();
-                System.out.println("Informa o nome da Empresa : ");
+                System.out.print("Informa o nome da Empresa: ");
                 infoVagas[i].empresa = Menu.leia.next();
                 System.out.print("Salário : ");
                 infoVagas[i].valor = Menu.leia.nextFloat();
-                System.out.println("Informe a localização : ");
+                System.out.print("Informe a localização: ");
                 infoVagas[i].local = Menu.leia.next();
+                layout();
 
                 //SETA VAGA DISPONIVEL
                 infoVagas[i].disp = true;
@@ -124,9 +127,11 @@ public class Vagas {
         /**
          * Função cadastrarNovamente.
          */
+        layout();
         System.out.println("\nDeseja Cadastrar outra vaga?");
         System.out.println("s ou n?");
         String resposta = Menu.leia.next();
+        layout();
 
         /**
          * ira checar se o usuario quer cadastrar outra vaga ou não.
@@ -163,16 +168,41 @@ public class Vagas {
         /**
          * Mostra Pequenas informações das vagas Cadastradas.
          */
-        System.out.println("Resumo de Vagas : ");
+        System.out.println("Relação de Vagas:");
 
         for (int i = 0; i < infoVagas.length; i++) {
 
             if (infoVagas[i].disp != false) {
-                System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-                System.out.println("Descrição : " + infoVagas[i].descricao);
-                System.out.println("Localização :" + infoVagas[i].local);
+                System.out.println("Código Vaga: " + infoVagas[i].codigoVaga);
+                System.out.println("Descrição: " + infoVagas[i].descricao);
+                System.out.println("Localização:" + infoVagas[i].local);
+                layout();
 
             }
+
+        }
+        System.out.println(" 1- Cadastrar Vagas");
+        System.out.println(" 2- Detalhes da vaga");
+        System.out.println(" 0- Sair");
+        int resp = Menu.leia.nextInt();
+
+        switch (resp) {
+            case 1:
+                cadastrarVagas();
+                break;
+            case 2:
+                MostrarVagaCompleta();
+                break;
+            case 0:
+                System.exit(resp);
+                break;
+            default:
+                layout();
+                System.out.println("Opção inválida");
+                System.out.println("Tente novamente");
+                mostrarVagas();
+                layout();
+                break;
 
         }
 
@@ -192,6 +222,7 @@ public class Vagas {
                 System.out.println("Empresa : " + infoVagas[i].empresa);
                 System.out.println("Localização :" + infoVagas[i].local);
                 System.out.println("Salário : " + infoVagas[i].valor);
+                layout();
                 if (infoVagas[i].disp == true) {
                     System.out.println("Vaga Disponivel");
                 }
@@ -203,11 +234,12 @@ public class Vagas {
     }
 
     public static void continuidadeVagas() {
-
+        layout();
         System.out.println("O que Deseja fazer?");
         System.out.println("1 - CADASTRAR VAGAS");
-        System.out.println("2 - DETALHAR VAGA");
-        System.out.println("3 - VOLTAR PARA MENU PRINCIPAL");
+        System.out.println("2 - VOLTAR PARA MENU PRINCIPAL");
+        System.out.println("0 - Sair");
+        layout();
 
         int opcao = Menu.leia.nextInt();
 
@@ -216,10 +248,9 @@ public class Vagas {
                 cadastrarVagas();
                 break;
             case 2:
-                MostrarVagaCompleta();
-                break;
-            case 3:
                 Menu.menu();
+            case 0:
+                System.exit(opcao);
             default: {
                 System.out.println("Opção Invalidada");
                 continuidadeVagas();
@@ -233,32 +264,32 @@ public class Vagas {
 
         int vaga = Menu.leia.nextInt();
 
-        for (int i = 0; i < infoVagas.length; i = i + 1) {
+        for (int i = 0; i < infoVagas.length; i++) {
 
-            if (vaga == i) {
+            if (vaga == infoVagas[i].codigoVaga) {
                 System.out.println("Descrição: " + infoVagas[i].descricao);
                 System.out.println("Empresa: " + infoVagas[i].empresa);
                 System.out.println("Local : " + infoVagas[i].local);
                 System.out.println("Salario : " + infoVagas[i].valor);
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-
+                layout();
                 System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
-                String resposta = Menu.leia.next();
 
-                switch (resposta) {
-                    case "s": {
-                        infoVagas[i].disp = false;
-                        System.out.println(infoVagas[i].disp);
-                    }
+            }
+        }
+        String resposta = Menu.leia.next();
 
-                    break;
-                }
-                Menu.menu();
-            } else {
-                System.out.println("Vaga Invalida, tente novamente : ");
+        switch (resposta) {
+            case "s": {
+                infoVagas[vaga].disp = false;
+                System.out.println(infoVagas[vaga].disp);
             }
 
+            break;
         }
-
+        Menu.menu();
     }
+
 }
+
+
