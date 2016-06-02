@@ -1,7 +1,5 @@
 package PI;
 
-import PI.AuxCadastrar;
-import static PI.Inicio.principal;
 import static PI.Layout.layout;
 import java.util.Scanner;
 
@@ -16,17 +14,21 @@ public class CadastrarNovos {
 
         Scanner teclado = new Scanner(System.in);
 
-        cadastro = new AuxCadastrar[3];
-
-        for (int i = 0; i == 0; i++) {
-
+        cadastro = new AuxCadastrar[5];
+        
+        for (int i = 0; i == 0; i++){
+            
             cadastro[i] = new AuxCadastrar();
+            
             System.out.println("Informe seu nome: ");
             cadastro[i].nome = teclado.next();
-
             System.out.println("Informe sua senha: ");
             cadastro[i].senha = teclado.next();
         }
+        
+//        for (int i = 2; i < cadastro.length; i++) {
+//            cadastro[i] = new AuxCadastrar();
+//        }
 
 //        //Esse  SOUT é uma tentativa de visualizar o que foi armazenado.
         layout();

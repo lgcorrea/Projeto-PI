@@ -168,6 +168,7 @@ public class Vagas {
          * Mostra Pequenas informações das vagas Cadastradas.
          */
         System.out.println("Relação de Vagas:");
+        System.out.println();
 
         for (int i = 0; i < infoVagas.length; i++) {
 
@@ -184,6 +185,7 @@ public class Vagas {
         System.out.println(" 2- Detalhes da vaga");
         System.out.println(" 0- Sair");
         int resp = Menu.leia.nextInt();
+        layout();
 
         switch (resp) {
             case 1:
@@ -212,8 +214,8 @@ public class Vagas {
         // MOSTRA A VAGA COMPLETA 
         System.out.println("Informe o Código da Vaga ");
         System.out.println("que deseja Detalhar : ");
-
         int vaga = Menu.leia.nextInt();
+        layout();
 
         for (int i = 0; i < infoVagas.length; i++) {
             if (vaga == infoVagas[i].codigoVaga) {
@@ -237,8 +239,8 @@ public class Vagas {
     public static void selecionaVaga() {
 
         System.out.println("Digite o numero da vaga");
-
         int vaga = Menu.leia.nextInt();
+        layout();
 
         for (int i = 0; i < infoVagas.length; i++) {
 
@@ -248,10 +250,11 @@ public class Vagas {
                 System.out.println("Local : " + infoVagas[i].local);
                 System.out.println("Salario : " + infoVagas[i].valor);
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-                layout();
+                
 
             }
         }
+        System.out.println();
         System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
         String resposta = Menu.leia.next();
 
@@ -260,8 +263,10 @@ public class Vagas {
                 for (int i = 0; i < infoVagas.length; i++) {
                     if (vaga == infoVagas[i].codigoVaga) {
                         infoVagas[i].disp = false;
-                        System.out.println(infoVagas[i].disp);
-                    };
+                        //System.out.println(infoVagas[i].disp);
+                        layout();
+                        System.out.println("Seleção de vaga efetuada com sucesso");
+                    }
                 }
             }
 
@@ -273,13 +278,13 @@ public class Vagas {
     public static void continuidadeVagas() {
         layout();
         System.out.println("O que Deseja fazer?");
+        System.out.println();
         System.out.println("1 - CADASTRAR VAGAS");
         System.out.println("2 - ESCOLHER VAGAS");
         System.out.println("3 - LISTAR VAGAS");
         System.out.println("0 - Sair");
-        layout();
-
         int opcao = Menu.leia.nextInt();
+        layout();
 
         switch (opcao) {
             case 1:
