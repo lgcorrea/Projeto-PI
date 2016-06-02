@@ -250,29 +250,31 @@ public class Vagas {
                 System.out.println("Local : " + infoVagas[i].local);
                 System.out.println("Salario : " + infoVagas[i].valor);
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-                
 
             }
         }
         System.out.println();
         System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
+        System.out.println("SIIM (S) OU NÃO (N)");
         String resposta = Menu.leia.next();
 
-        switch (resposta) {
-            case "s": {
-                for (int i = 0; i < infoVagas.length; i++) {
-                    if (vaga == infoVagas[i].codigoVaga) {
-                        infoVagas[i].disp = false;
-                        //System.out.println(infoVagas[i].disp);
-                        layout();
-                        System.out.println("Seleção de vaga efetuada com sucesso");
-                    }
-                }
-            }
+        if ("s".equalsIgnoreCase(resposta)) {
 
-            break;
+            for (int i = 0; i < infoVagas.length; i++) {
+                if (vaga == infoVagas[i].codigoVaga) {
+                    infoVagas[i].disp = false;
+                    //System.out.println(infoVagas[i].disp);
+                    layout();
+                    System.out.println("Seleção de vaga efetuada com sucesso");
+                }
+
+            }
+        } else if ("n".equalsIgnoreCase(resposta)) {
+            Menu.menu();
+        } else {
+            selecionaVaga();
         }
-        Menu.menu();
+
     }
 
     public static void continuidadeVagas() {
