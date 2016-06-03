@@ -85,15 +85,14 @@ public class Vagas {
          *
          * Cadastra a vaga.
          */
-        
         for (int i = 0; i <= infoVagas.length; i++) {
 
             if (infoVagas[i].codigoVaga == 0) {
 
                 infoVagas[i] = new vetorVagas();
-                
+
                 System.out.print("Código da Vaga: ");
-                infoVagas[i].codigoVaga = Menu.leia.nextInt();
+                Checagem.checar(infoVagas[i].codigoVaga);
                 Menu.leia.nextLine();
                 System.out.print("Informe a descrição da Vaga: ");
                 infoVagas[i].descricao = Menu.leia.nextLine();

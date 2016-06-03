@@ -28,7 +28,7 @@ public class Inicio {
 
     /**
      * Função principal Direciona o usuário
-     */
+     */ 
     static void principal() {
         layout();
         System.out.println(" 1. Faça Login                ");

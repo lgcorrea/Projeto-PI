@@ -6,41 +6,35 @@
 package PI;
 
 import java.util.Scanner;
-
+ 
 /**
  *
  * @author luis.gpcorrea
  */
 public class Checagem {
 
+    static Scanner ler = new Scanner(System.in);
+
     public static void main(String[] args) {
-        checar();
+
     }
 
-    public static void checar() {
-        Scanner leia = new Scanner(System.in);
-
-        int x = 0;
+    public static void checar(int numero) {
         boolean flag = false;
-
-        do {
-            System.out.println("digite um caracter ");
-        } while (flag != false);
-        {
+        
+        while (flag == false) {
 
             try {
-                x = leia.nextInt();
+                numero = ler.nextInt();
+               //flag = true;
 
-            } 
-            
-            catch (Exception y) {
-                System.out.println("é letra");
-                checar();
-
+            } catch (Exception y) {
+                System.out.println("Tente novamente");
+                numero = 0;
+               // checar(numero);
             }
-                flag = false;
+                
         }
-        System.out.print("");
-        System.out.println("teste");
+        
     }
 }
