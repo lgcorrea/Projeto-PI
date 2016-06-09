@@ -45,7 +45,7 @@ public class CadastrarNovos {
                 System.out.println("Usuario cadastrado com sucesso");
                 System.out.println("Seja bem-vindo");
                 layout();
-                Menu.menu();
+                principal();
 
             }
         }
