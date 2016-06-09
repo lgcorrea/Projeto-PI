@@ -1,8 +1,8 @@
 package PI;
 
+import static PI.CadastrarNovos.forLogin;
 import static PI.Layout.layout;
 import static PI.Login.login;
-import static PI.Vagas.mostrarVagas;
 import java.util.Scanner;
 
 /**
@@ -16,8 +16,6 @@ public class Inicio {
     public static Scanner teclado = new Scanner(System.in);
 
     /**
-     * Chama as funções
-     *
      * @param args
      */
     public static void main(String[] args) {
@@ -27,7 +25,7 @@ public class Inicio {
     }
 
     /**
-     * Função principal Direciona o usuário
+     * Função principal - Direciona o usuário
      */
     static void principal() {
         layout();
@@ -46,11 +44,13 @@ public class Inicio {
                 user = teclado.next();
                 System.out.println("Senha: ");
                 pass = teclado.next();
+                //Executa a função login - Classe login
                 login();
                 break;
             case 2:
                 System.out.println("cadastre-se");
-                CadastrarNovos.forLogin();
+                //Esxecuta a função forlogin - Classe CadastrarNovos
+                forLogin();
                 break;
             case 0:
                 layout();
@@ -59,6 +59,7 @@ public class Inicio {
                 System.exit(resp);
                 break;
             default:
+                //Volta para esta função
                 System.out.println(" Opção inválida!        ");
                 System.out.println(" Tente uma opção válida!");
                 layout();
