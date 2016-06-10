@@ -26,12 +26,12 @@ public class Checagem {
 
             try {
                 numero = ler.nextInt();
-               //flag = true;
+                flag = true;
 
             } catch (Exception y) {
                 System.out.println("Tente novamente");
-                numero = 0;
-               // checar(numero);
+                               
+               
             }
                 
         }
