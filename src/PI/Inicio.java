@@ -47,7 +47,6 @@ public class Inicio {
                 login();
                 break;            
             case 0:
-                layout();
                 System.out.println("   Obrigado por utilizar nosso sitema!   ");
                 layout();
                 System.exit(resp);

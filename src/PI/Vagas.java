@@ -84,12 +84,12 @@ public class Vagas {
          */
         for (int i = 0; i <= infoVagas.length; i++) {
 
-            if (infoVagas[i].codigoVaga == 0) {
+            if (infoVagas[i].codigoVaga == 0 ) {
 
                 infoVagas[i] = new vetorVagas();
 
                 System.out.print("Código da Vaga: ");
-                Checagem.checar(infoVagas[i].codigoVaga);
+                infoVagas[i].codigoVaga = Menu.leia.nextInt();                
                 Menu.leia.nextLine();
                 System.out.print("Informe a descrição da Vaga: ");
                 infoVagas[i].descricao = Menu.leia.nextLine();
@@ -263,6 +263,7 @@ public class Vagas {
                     //System.out.println(infoVagas[i].disp);
                     layout();
                     System.out.println("Seleção de vaga efetuada com sucesso");
+                    Menu.menu();
                 }
 
             }
