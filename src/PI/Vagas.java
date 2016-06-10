@@ -14,7 +14,7 @@ import static PI.Layout.layout;
 public class Vagas {
 
     public static vetorVagas[] infoVagas;
-    
+
     public static void main(String[] args) {
         //cadastrarVagas();
 
@@ -38,7 +38,7 @@ public class Vagas {
             infoVagas[i].empresa = "MarketData";
             infoVagas[i].local = "Berrini";
             infoVagas[i].valor = 1200;
-            infoVagas[i].disp = true;
+            infoVagas[i].disp = true;             
         }
 
         for (int i = 1; i == 1; i++) {
@@ -268,8 +268,8 @@ public class Vagas {
 
                     layout();
                     System.out.println("Seleção de vaga efetuada com sucesso");
-                    for(int j = 0; j <5; j++){
-                    reoganiza(infoVagas);
+                    for (int j = 0; j < 5; j++) {
+                        reoganiza(infoVagas);
                     }
                     Menu.menu();
                 }
@@ -316,33 +316,31 @@ public class Vagas {
     public static int[] reoganiza(vetorVagas[] infoVagas) {
         int[] vetornovo = new int[infoVagas.length];
 
-        for (int i = 0; i < 5; i++) {            
+        for (int i = 0; i < 5; i++) {
             if (infoVagas[i].codigoVaga == 0) {
-                infoVagas[i].codigoVaga = infoVagas[i+1].codigoVaga;
-                infoVagas[i].descricao = infoVagas[i+1].descricao;
-                infoVagas[i].empresa = infoVagas[i+1].empresa;
-                infoVagas[i].local = infoVagas[i+1].local;
-                infoVagas[i].valor = infoVagas[i+1].valor;
-                infoVagas[i].disp = infoVagas[i+1].disp;
-                
+                infoVagas[i].codigoVaga = infoVagas[i + 1].codigoVaga;
+                infoVagas[i].descricao = infoVagas[i + 1].descricao;
+                infoVagas[i].empresa = infoVagas[i + 1].empresa;
+                infoVagas[i].local = infoVagas[i + 1].local;
+                infoVagas[i].valor = infoVagas[i + 1].valor;
+                infoVagas[i].disp = infoVagas[i + 1].disp;
+
             }
-            
+
         }
-            for(int i = 0; i< 5; i++) {
-                if(infoVagas[i].codigoVaga == infoVagas[i+1].codigoVaga) {
-                    infoVagas[i+1].codigoVaga = 0;
-                    infoVagas[i+1].descricao = "";
-                    infoVagas[i+1].empresa = "";
-                    infoVagas[i+1].local = "";
-                    infoVagas[i+1].valor = 0;
-                    infoVagas[i+1].disp = false;               
-                
-                }
-            
-            
+        for (int i = 0; i < 5; i++) {
+            if (infoVagas[i].codigoVaga == infoVagas[i + 1].codigoVaga) {
+                infoVagas[i + 1].codigoVaga = 0;
+                infoVagas[i + 1].descricao = "";
+                infoVagas[i + 1].empresa = "";
+                infoVagas[i + 1].local = "";
+                infoVagas[i + 1].valor = 0;
+                infoVagas[i + 1].disp = false;
+
             }
-                
-        
+
+        }
+
         return vetornovo;
     }
 }
