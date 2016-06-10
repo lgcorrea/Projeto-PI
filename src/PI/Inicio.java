@@ -1,6 +1,5 @@
 package PI;
 
-import static PI.CadastrarNovos.cadastro;
 import static PI.Layout.layout;
 import static PI.Login.login;
 import java.util.Scanner;
@@ -30,8 +29,7 @@ public class Inicio {
     static void principal() {
 
         layout();
-        System.out.println(" 1. Faça Login                ");
-        System.out.println(" 2. Ainda não um possui Login?");
+        System.out.println(" 1. Faça Login                ");       
         System.out.println(" 0. Sair                      ");
         int resp = teclado.nextInt();
         layout();
@@ -47,12 +45,7 @@ public class Inicio {
                 pass = teclado.next();
                 //Executa a função login - Classe login
                 login();
-                break;
-            case 2:
-                System.out.println("cadastre-se");
-                //Esxecuta a função forlogin - Classe CadastrarNovos
-                CadastrarNovos.LoginUsuario();
-                break;
+                break;            
             case 0:
                 layout();
                 System.out.println("   Obrigado por utilizar nosso sitema!   ");

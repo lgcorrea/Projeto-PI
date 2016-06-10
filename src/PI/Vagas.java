@@ -39,7 +39,6 @@ public class Vagas {
             infoVagas[i].local = "Berrini";
             infoVagas[i].valor = 1200;
             infoVagas[i].disp = true;
-            System.out.println("Concluido");
         }
 
         for (int i = 1; i == 1; i++) {
@@ -52,7 +51,6 @@ public class Vagas {
             infoVagas[i].local = "Paulista";
             infoVagas[i].valor = 1250;
             infoVagas[i].disp = true;
-            System.out.println("Concluido");
 
         }
 
@@ -66,7 +64,6 @@ public class Vagas {
             infoVagas[i].local = "Jurubatuba";
             infoVagas[i].valor = 1600;
             infoVagas[i].disp = true;
-            System.out.println("Concluido");
 
         }
 
