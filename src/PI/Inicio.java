@@ -1,6 +1,6 @@
 package PI;
 
-import static PI.CadastrarNovos.forLogin;
+import static PI.CadastrarNovos.cadastro;
 import static PI.Layout.layout;
 import static PI.Login.login;
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public class Inicio {
     /**
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         Vagas.vPadrao();
         principal();
         //login();
@@ -28,6 +28,7 @@ public class Inicio {
      * Função principal - Direciona o usuário
      */
     static void principal() {
+
         layout();
         System.out.println(" 1. Faça Login                ");
         System.out.println(" 2. Ainda não um possui Login?");
@@ -50,7 +51,7 @@ public class Inicio {
             case 2:
                 System.out.println("cadastre-se");
                 //Esxecuta a função forlogin - Classe CadastrarNovos
-                forLogin();
+                CadastrarNovos.LoginUsuario();
                 break;
             case 0:
                 layout();

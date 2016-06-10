@@ -14,16 +14,13 @@ public class Login {
      */
     static void login() {
 
-        for (int i = 0; i < cadastro.length; i++) {
+        //CadastrarNovos.LoginUsuario();
+        //CadastrarNovos.LoginMaster();
 
-            cadastro[i] = new AuxCadastrar();
+        for (int i = 0; i < cadastro.length; i++) {
 
             if (user.equals(cadastro[i].nome) && pass.equals(cadastro[i].senha)) {
                 System.out.println("Seja bem-vindo");
-                Menu.menu();
-
-            } else if ("UserMaster".equals(user) && "pass123".equals(pass)) {
-                System.out.println("Logado com sucesso");
                 Menu.menu();
 
             } else {
