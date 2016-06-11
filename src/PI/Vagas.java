@@ -88,9 +88,9 @@ public class Vagas {
          * Cadastra a vaga.
          */
         for (int i = 0; i < infoVagas.length; i++) {
-            
+
             if (infoVagas[i].codigoVaga == 0) {
-                
+
                 //Incremento -> controla o codigo das vagas
                 num = num + 1;
                 infoVagas[i] = new vetorVagas();
@@ -107,7 +107,7 @@ public class Vagas {
                 System.out.print("Informe a localização: ");
                 infoVagas[i].local = Menu.leia.next();
                 layout();
-                
+
                 //Verifica se o código digitado ja existe
                 if (infoVagas[i].codigoVaga < num) {
                     System.out.println("Impossivel cadastrar vaga");
@@ -116,8 +116,15 @@ public class Vagas {
                     //Se entrarmos nesta condição seremos obrigados a retirar 1 de num
                     //Pois ao entrar no FOR novamente somara mais 1 e resultará em erro
                     num = num - 1;
+                    //Verifica se o código digitado sai da sequencia                
+                    infoVagas[i].codigoVaga = 0;
+                    infoVagas[i].descricao = "";
+                    infoVagas[i].empresa = "";
+                    infoVagas[i].local = "";
+                    infoVagas[i].valor = 0;
+                    infoVagas[i].disp = false;
                     cadastrarVagas();
-                //Verifica se o código digitado sai da sequencia
+
                 } else {
 
                     //SETA VAGA DISPONIVEL
@@ -190,14 +197,13 @@ public class Vagas {
 
         for (int i = 0; i < infoVagas.length; i++) {
 
-            if (infoVagas[i].disp != false) {
-                System.out.println("Código Vaga: " + infoVagas[i].codigoVaga);
-                System.out.println("Descrição: " + infoVagas[i].descricao);
-                System.out.println("Localização:" + infoVagas[i].local);
-                layout();
+            ///if (infoVagas[i].disp != false) {
+            System.out.println("Código Vaga: " + infoVagas[i].codigoVaga);
+            System.out.println("Descrição: " + infoVagas[i].descricao);
+            System.out.println("Localização:" + infoVagas[i].local);
+            layout();
 
-            }
-
+            //}
         }
         System.out.println(" 1- Cadastrar Vagas");
         System.out.println(" 2- Detalhes da vaga");

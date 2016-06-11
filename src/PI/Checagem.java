@@ -6,35 +6,35 @@
 package PI;
 
 import java.util.Scanner;
- 
+
 /**
  *
  * @author luis.gpcorrea
  */
 public class Checagem {
 
-    static Scanner ler = new Scanner(System.in);
-
     public static void main(String[] args) {
 
     }
 
-    public static void checar(int numero) {
+    public static int checar(String numero) {
         boolean flag = false;
-        
+        int aux = 0;
+
         while (flag == false) {
 
             try {
-                numero = ler.nextInt();
+                numero = Menu.leia.next();
+                aux = Integer.parseInt(numero);
                 flag = true;
 
             } catch (Exception y) {
                 System.out.println("Tente novamente");
-                               
-               
+
             }
-                
+
         }
-        
+            return aux;
+
     }
 }
