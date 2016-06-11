@@ -5,7 +5,7 @@
  */
 package PI;
 
-import java.util.Scanner;
+import static PI.Layout.layout;
 
 /**
  *
@@ -13,28 +13,55 @@ import java.util.Scanner;
  */
 public class Checagem {
 
+    static boolean flagValor = false;
+    static boolean flagNumero = false;
+
     public static void main(String[] args) {
+        System.out.println("TESTE");
 
     }
 
-    public static int checar(String numero) {
-        boolean flag = false;
-        int aux = 0;
+    public static int checarNumero(int numero) {
 
-        while (flag == false) {
+        try {
+            numero = Menu.leia.nextInt();
+            flagNumero = true;
+        } catch (java.util.InputMismatchException erro) {
+            System.out.println("Aviso: Este campo aceita apenas numeros");
+            flagNumero = false;
+        }
 
-            try {
-                numero = Menu.leia.next();
-                aux = Integer.parseInt(numero);
-                flag = true;
+        return numero;
+    }
 
-            } catch (Exception y) {
-                System.out.println("Tente novamente");
+    public static int checarVaga(int vaga) {
 
-            }
+        try {
+            vaga = Menu.leia.nextInt();
+
+        } catch (java.util.InputMismatchException erro) {
+            System.out.println("Aviso: Este campo aceita apenas numeros");
 
         }
-            return aux;
+        return vaga;
+    }
+
+    public static float checarValor(float valor) {
+
+        try {
+
+            valor = Menu.leia.nextFloat();
+            flagValor = true;
+
+        } catch (java.util.InputMismatchException erro) {
+            System.out.println("Aviso: Este Campo aceita apenas numeros");
+            layout();
+            flagValor = false;
+
+        }
+
+        return valor;
 
     }
+
 }

@@ -6,11 +6,12 @@
 package PI;
 
 public class vetorVagas {
+
+    public int codigoVaga = 0;
     public String descricao = "";
     public String empresa = "";
     public String local = "";
     public boolean disp = false;
     public float valor = 0;
-    public int codigoVaga = 0;
-    
+
 }
