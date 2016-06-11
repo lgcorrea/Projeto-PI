@@ -12,7 +12,11 @@ package PI;
 public class Layout {
     
     static void layout(){
-        System.out.println("-----------------------------------------------");
+        System.out.println("|===============================================|");
+    }
+    
+    static void layoutMenu(){
+        System.out.println("|==================| MENU |====================|");
     }
     
 }
