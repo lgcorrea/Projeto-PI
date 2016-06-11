@@ -32,7 +32,8 @@ public class Vagas {
             infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 1;
-            infoVagas[i].descricao = "Limpeza";
+            infoVagas[i].codigoRelat = 1;
+            infoVagas[i].descricao = "Aux. Limpeza";
             infoVagas[i].empresa = "MarketData";
             infoVagas[i].local = "Berrini";
             formatador.format(infoVagas[i].valor = 1200);
@@ -44,7 +45,8 @@ public class Vagas {
             infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 2;
-            infoVagas[i].descricao = "Faxina";
+            infoVagas[i].codigoRelat = 2;
+            infoVagas[i].descricao = "Faxineira";
             infoVagas[i].empresa = "Intelecta";
             infoVagas[i].local = "Paulista";
             formatador.format(infoVagas[i].valor = 1250);
@@ -57,7 +59,8 @@ public class Vagas {
             infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 3;
-            infoVagas[i].descricao = "Faxina";
+            infoVagas[i].codigoRelat = 2;
+            infoVagas[i].descricao = "Faxineira";
             infoVagas[i].empresa = "Senac";
             infoVagas[i].local = "Jurubatuba";
             formatador.format(infoVagas[i].valor = 1600);
@@ -221,7 +224,8 @@ public class Vagas {
                 MostrarVagaCompleta();
                 break;
             case 0:
-                System.exit(resp);
+                System.out.println("   Sessão Finalizada   ");
+                Inicio.principal();
                 break;
             default:
                 layout();
