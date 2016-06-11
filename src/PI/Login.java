@@ -15,6 +15,7 @@ public class Login {
         
 
         if (user.equals("UserMaster") && pass.equals("pass123")) {
+            System.out.println("");
             System.out.println("Seja bem-vindo");
             Menu.menu();
 
@@ -22,7 +23,6 @@ public class Login {
             layout();
             System.out.println("  Usuario ou Senha Inválidos   ");
             System.out.println("  Tente novamente              ");
-            layout();
             principal();
 
         }

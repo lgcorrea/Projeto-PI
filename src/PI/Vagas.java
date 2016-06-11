@@ -6,6 +6,7 @@
 package PI;
 
 import static PI.Layout.layout;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -13,11 +14,12 @@ import static PI.Layout.layout;
  */
 public class Vagas {
 
+    public static int num = 3;
     public static vetorVagas[] infoVagas;
+    static DecimalFormat formatador = new DecimalFormat("0000.00");
 
     public static void main(String[] args) {
         //cadastrarVagas();
-
         //vPadrao();
         //selecionaVaga();
         //mostrarVagas();
@@ -33,23 +35,25 @@ public class Vagas {
 
             infoVagas[i] = new vetorVagas();
 
+            double Sal = 1200;
             infoVagas[i].codigoVaga = 1;
             infoVagas[i].descricao = "Limpeza";
             infoVagas[i].empresa = "MarketData";
             infoVagas[i].local = "Berrini";
-            infoVagas[i].valor = 1200;
-            infoVagas[i].disp = true;             
+            formatador.format(infoVagas[i].valor = 1200);
+            infoVagas[i].disp = true;
         }
 
         for (int i = 1; i == 1; i++) {
 
             infoVagas[i] = new vetorVagas();
 
+            //num = num + 1;
             infoVagas[i].codigoVaga = 2;
             infoVagas[i].descricao = "Faxina";
             infoVagas[i].empresa = "Intelecta";
             infoVagas[i].local = "Paulista";
-            infoVagas[i].valor = 1250;
+            formatador.format(infoVagas[i].valor = 1250);
             infoVagas[i].disp = true;
 
         }
@@ -58,11 +62,12 @@ public class Vagas {
 
             infoVagas[i] = new vetorVagas();
 
+            //num = num + 1;
             infoVagas[i].codigoVaga = 3;
             infoVagas[i].descricao = "Faxina";
             infoVagas[i].empresa = "Senac";
             infoVagas[i].local = "Jurubatuba";
-            infoVagas[i].valor = 1600;
+            formatador.format(infoVagas[i].valor = 1600);
             infoVagas[i].disp = true;
 
         }
@@ -82,10 +87,12 @@ public class Vagas {
          *
          * Cadastra a vaga.
          */
-        for (int i = 0; i <= infoVagas.length; i++) {
-
+        for (int i = 0; i < infoVagas.length; i++) {
+            
             if (infoVagas[i].codigoVaga == 0) {
-
+                
+                //Incremento -> controla o codigo das vagas
+                num = num + 1;
                 infoVagas[i] = new vetorVagas();
 
                 System.out.print("Código da Vaga: ");
@@ -93,21 +100,35 @@ public class Vagas {
                 Menu.leia.nextLine();
                 System.out.print("Informe a descrição da Vaga: ");
                 infoVagas[i].descricao = Menu.leia.nextLine();
-                System.out.print("Informa o nome da Empresa: ");
+                System.out.print("Informe o nome da Empresa: ");
                 infoVagas[i].empresa = Menu.leia.next();
-                System.out.print("Salário : ");
+                System.out.print("Salário R$: ");
                 infoVagas[i].valor = Menu.leia.nextFloat();
                 System.out.print("Informe a localização: ");
                 infoVagas[i].local = Menu.leia.next();
                 layout();
-
-                //SETA VAGA DISPONIVEL
-                infoVagas[i].disp = true;
-                if (infoVagas[i].disp == true) {
-                    System.out.println("Vaga Disponivel");
-
+                
+                //Verifica se o código digitado ja existe
+                if (infoVagas[i].codigoVaga < num) {
+                    System.out.println("Impossivel cadastrar vaga");
+                    System.out.println("Para dar sequência utilize o código :" + num);
+                    layout();
+                    //Se entrarmos nesta condição seremos obrigados a retirar 1 de num
+                    //Pois ao entrar no FOR novamente somara mais 1 e resultará em erro
+                    num = num - 1;
+                    cadastrarVagas();
+                //Verifica se o código digitado sai da sequencia
                 } else {
-                    System.out.println("Vaga Indisponivel");
+
+                    //SETA VAGA DISPONIVEL
+                    infoVagas[i].disp = true;
+                    if (infoVagas[i].disp == true) {
+                        System.out.println("Vaga Disponivel");
+
+                    } else {
+                        System.out.println("Vaga Indisponivel");
+
+                    }
                 }
                 cadastrarNovamente();
             }
@@ -209,19 +230,18 @@ public class Vagas {
     public static void MostrarVagaCompleta() {
 
         // MOSTRA A VAGA COMPLETA 
-        System.out.println("Informe o Código da Vaga ");
-        System.out.println("que deseja Detalhar : ");
+        System.out.println("Informe o Código da Vaga que deseja detalhar: ");
         int vaga = Menu.leia.nextInt();
         layout();
 
         for (int i = 0; i < infoVagas.length; i++) {
             if (vaga == infoVagas[i].codigoVaga) {
                 if (infoVagas[i].disp != false) {
-                    System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
-                    System.out.println("Descrição : " + infoVagas[i].descricao);
-                    System.out.println("Empresa : " + infoVagas[i].empresa);
-                    System.out.println("Localização :" + infoVagas[i].local);
-                    System.out.println("Salário : " + infoVagas[i].valor);
+                    System.out.println("Código Vaga: " + infoVagas[i].codigoVaga);
+                    System.out.println("Descrição: " + infoVagas[i].descricao);
+                    System.out.println("Empresa: " + infoVagas[i].empresa);
+                    System.out.println("Localização: " + infoVagas[i].local);
+                    System.out.println("Salario R$: " + formatador.format(infoVagas[i].valor));
                     layout();
                     if (infoVagas[i].disp == true) {
                         System.out.println("Vaga Disponivel");
@@ -269,7 +289,7 @@ public class Vagas {
                     layout();
                     System.out.println("Seleção de vaga efetuada com sucesso");
                     for (int j = 0; j < 5; j++) {
-                        reoganiza(infoVagas);
+                        reorganiza(infoVagas);
                     }
                     Menu.menu();
                 }
@@ -313,7 +333,7 @@ public class Vagas {
         }
     }
 
-    public static int[] reoganiza(vetorVagas[] infoVagas) {
+    public static int[] reorganiza(vetorVagas[] infoVagas) {
         int[] vetornovo = new int[infoVagas.length];
 
         for (int i = 0; i < 5; i++) {
