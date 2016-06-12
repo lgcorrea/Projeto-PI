@@ -94,6 +94,8 @@ public class Vagas {
                 infoVagas[i].codigoVaga = Checagem.checarNumero(infoVagas[i].codigoVaga);
                 Menu.leia.nextLine();
                 System.out.println("Informe o Tipo da Vaga: ");
+                //SE A OPÇÃO DE TIPO DE VAGA ESTIVER INCORRETA, O SISTEMA INFORMARÁ
+                //E PEDIRÁ PARA CADASTRAR NOVAMENTE
                 boolean flagTipoVaga = true;
                 int opcaoTipoVaga = 0;
                 System.out.println("1.Aux. de Limpeza 2.Faxineira 3.Diarista");
@@ -396,7 +398,7 @@ public class Vagas {
         System.out.println();
         System.out.println("1 - CADASTRAR VAGAS");
         System.out.println("2 - ESCOLHER VAGA");
-        System.out.println("3 - LISTAR VAGAS");
+        System.out.println("3 - BUSCAR VAGAS");
         System.out.println("0 - Sair");
         int opcao = Menu.leia.nextInt();
         layout();
@@ -409,7 +411,7 @@ public class Vagas {
                 selecionaVaga();
                 break;
             case 3:
-                mostrarVagas();
+                RelatorioVagas.relatVagas();
                 break;
             case 0:
                 System.exit(opcao);
