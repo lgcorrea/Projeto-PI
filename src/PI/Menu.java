@@ -31,7 +31,7 @@ public class Menu {
                 Vagas.mostrarVagas();
                 break;
             case 3:
-                RelatorioVagas.relatVagas();
+                RelatorioVagas.OpcoesRelatorios();
             //AO DIGITAR 0 O SISTEMA IRA FECHAR.
             case 0:
                 layout();
