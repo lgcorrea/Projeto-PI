@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
  */
 public class Vagas {
 
+    public static boolean vagaSelecionada = false;
     public static int num = 3;
     public static vetorVagas[] infoVagas;
     static DecimalFormat formatador = new DecimalFormat("0000.00");
@@ -32,7 +33,7 @@ public class Vagas {
             infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 1;
-            infoVagas[i].codigoRelat = 1;
+            infoVagas[i].tipoVaga = 1;
             infoVagas[i].descricao = "Aux. Limpeza";
             infoVagas[i].empresa = "MarketData";
             infoVagas[i].local = "Berrini";
@@ -45,7 +46,7 @@ public class Vagas {
             infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 2;
-            infoVagas[i].codigoRelat = 2;
+            infoVagas[i].tipoVaga = 2;
             infoVagas[i].descricao = "Faxineira";
             infoVagas[i].empresa = "Intelecta";
             infoVagas[i].local = "Paulista";
@@ -59,7 +60,7 @@ public class Vagas {
             infoVagas[i] = new vetorVagas();
 
             infoVagas[i].codigoVaga = 3;
-            infoVagas[i].codigoRelat = 2;
+            infoVagas[i].tipoVaga = 2;
             infoVagas[i].descricao = "Faxineira";
             infoVagas[i].empresa = "Senac";
             infoVagas[i].local = "Jurubatuba";
@@ -92,6 +93,19 @@ public class Vagas {
                 System.out.print("Código da Vaga: ");
                 infoVagas[i].codigoVaga = Checagem.checarNumero(infoVagas[i].codigoVaga);
                 Menu.leia.nextLine();
+                System.out.println("Informe o Tipo da Vaga: ");
+                boolean flagTipoVaga = true;
+                int opcaoTipoVaga = 0;
+                System.out.println("1.Aux. de Limpeza 2.Faxineira 3.Diarista");
+                opcaoTipoVaga = Checagem.checarNumero(opcaoTipoVaga);
+                if (opcaoTipoVaga >= 1 && opcaoTipoVaga <= 3) {
+                    infoVagas[i].tipoVaga = opcaoTipoVaga;
+                } else {
+                    System.out.println("Opção do tipo de vaga Invalida");
+                    flagTipoVaga = false;
+                }
+                Menu.leia.nextLine();
+                //infoVagas[i].tipoVaga = Checagem.checarNumero(infoVagas[i].tipoVaga);
                 System.out.print("Informe a descrição da Vaga: ");
                 infoVagas[i].descricao = Menu.leia.nextLine();
                 System.out.print("Informe o nome da Empresa: ");
@@ -111,7 +125,10 @@ public class Vagas {
                     //Se entrarmos nesta condição seremos obrigados a retirar 1 de num
                     //Pois ao entrar no FOR novamente somara mais 1 e resultará em erro
                     num = num - 1;
-                    //Verifica se o código digitado sai da sequencia                
+                    //Verifica se o código digitado sai da sequencia
+                    
+                    //se o código estiver errado todas as posições do vetor
+                    //voltam para o padrão, assim não gravando infos incorretas.
                     infoVagas[i].codigoVaga = 0;
                     infoVagas[i].descricao = "";
                     infoVagas[i].empresa = "";
@@ -122,8 +139,35 @@ public class Vagas {
 
                 } else {
                     if (Checagem.flagValor == false) {
+                        //Se o salario estiver errado, todas as posições do vetor
+                        //voltam para o padrão, assim não gravando infos incorretas.
                         System.out.println("Salário invalido");
                         System.out.println("Tente novamente");
+                        num = num - 1;
+                        infoVagas[i].codigoVaga = 0;
+                        infoVagas[i].descricao = "";
+                        infoVagas[i].empresa = "";
+                        infoVagas[i].local = "";
+                        infoVagas[i].valor = 0;
+                        infoVagas[i].disp = false;
+                        cadastrarVagas();
+
+                    } else if (Checagem.flagNumero == false) {
+                        System.out.println("Tente novamente");
+                        num = num - 1;
+                        infoVagas[i].codigoVaga = 0;
+                        infoVagas[i].descricao = "";
+                        infoVagas[i].empresa = "";
+                        infoVagas[i].local = "";
+                        infoVagas[i].valor = 0;
+                        infoVagas[i].disp = false;
+                        cadastrarVagas();
+
+                    } else if (flagTipoVaga == false) {
+                         //Se o tipo da vaga estiver errado, todas as posições do vetor
+                        //voltam para o padrão, assim não gravando infos incorretas.
+                        System.out.println("Tipo de Vaga invalida");
+                        System.out.println("Tente Novamente");
                         num = num - 1;
                         infoVagas[i].codigoVaga = 0;
                         infoVagas[i].descricao = "";
@@ -142,13 +186,21 @@ public class Vagas {
                     System.out.println("Vaga Cadastrada !");
 
                 }
+                /**
+                 * Ao terminar de cadastrar ira perguntar se deseja fazer um
+                 * novo cadastro.
+                 */
                 cadastrarNovamente();
             }
 
-            /**
-             * Ao terminar de cadastrar ira perguntar se deseja fazer um novo
-             * cadastro.
-             */
+        }
+
+        for (int i = 9; i == 9; i++) {
+            if (infoVagas[i].codigoVaga != 0) {
+                System.out.println("Não é possivel Cadastrar Vagas");
+                System.out.println("Verifique o armazenamento");
+
+            }
         }
     }
 
@@ -158,7 +210,7 @@ public class Vagas {
          */
         layout();
         System.out.println("\nDeseja Cadastrar outra vaga?");
-        System.out.println("Sim ou Não?");
+        System.out.println("Sim ou Nao?");
         String resposta = Menu.leia.next();
         layout();
 
@@ -176,7 +228,7 @@ public class Vagas {
             }
             /*CASO "Não" Retorna para a função de menu
              */
-            case "Não": {
+            case "Nao": {
                 Menu.menu();
                 break;
             }
@@ -250,13 +302,20 @@ public class Vagas {
             if (vaga == infoVagas[i].codigoVaga) {
                 if (infoVagas[i].disp != false) {
                     System.out.println("Código Vaga: " + infoVagas[i].codigoVaga);
+                    if (infoVagas[i].tipoVaga == 1) {
+                        System.out.println("Tipo da Vaga: 1.Aux.Limpeza");
+                    } else if (infoVagas[i].tipoVaga == 2) {
+                        System.out.println("Tipo da Vaga: 2. Faxineira");
+                    } else {
+                        System.out.println("Tipo da Vaga: 3. Diarista");
+                    }
                     System.out.println("Descrição: " + infoVagas[i].descricao);
                     System.out.println("Empresa: " + infoVagas[i].empresa);
                     System.out.println("Localização: " + infoVagas[i].local);
                     System.out.println("Salario R$: " + formatador.format(infoVagas[i].valor));
-                    layout();
                     if (infoVagas[i].disp == true) {
                         System.out.println("Vaga Disponivel");
+                        layout();
                     }
                 }
             }
@@ -267,21 +326,35 @@ public class Vagas {
 
     public static void selecionaVaga() {
 
-        System.out.println("Digite o numero da vaga");
+        System.out.println("Digite o numero da vaga: ");
         int vaga = Menu.leia.nextInt();
         layout();
 
         for (int i = 0; i < infoVagas.length; i++) {
 
-            if (vaga == infoVagas[i].codigoVaga) {
+            if (vaga == infoVagas[i].codigoVaga && vagaSelecionada == false) {
                 System.out.println("Código Vaga : " + infoVagas[i].codigoVaga);
+                System.out.println("Tipo da Vaga:");
+                if (infoVagas[i].tipoVaga == 1) {
+                    System.out.println("Tipo da Vaga: 1.Aux.Limpeza");
+                } else if (infoVagas[i].tipoVaga == 2) {
+                    System.out.println("Tipo da Vaga: 2. Faxineira");
+                } else {
+                    System.out.println("Tipo da Vaga: 3. Diarista");
+                }
                 System.out.println("Descrição: " + infoVagas[i].descricao);
                 System.out.println("Empresa: " + infoVagas[i].empresa);
                 System.out.println("Local : " + infoVagas[i].local);
                 System.out.println("Salario : " + infoVagas[i].valor);
+            }
 
+            if (vaga == infoVagas[i].codigoVaga && vagaSelecionada == true) {
+                System.out.println("\nUma Vaga já foi selecionada");
+                System.out.println("Você pode escolher apenas uma vaga.\n");
+                Menu.menu();
             }
         }
+
         System.out.println();
         System.out.println("CONFIRMA SELEÇÃO DA VAGA? ");
         System.out.println("SIM (S) OU NÃO (N)");
@@ -292,12 +365,17 @@ public class Vagas {
             for (int i = 0; i < infoVagas.length; i++) {
                 if (vaga == infoVagas[i].codigoVaga) {
                     infoVagas[i].codigoVaga = 0;
+                    infoVagas[i].tipoVaga = 0;
                     infoVagas[i].descricao = "";
                     infoVagas[i].empresa = "";
                     infoVagas[i].local = "";
                     infoVagas[i].valor = 0;
                     infoVagas[i].disp = false;
 
+                    //AO ESCOLHER UMA VAGA, NÃO PODERÁ ESCOLHER OUTRA
+                    //A VARIAVEL vagaSelecionada é alterada para TRUE
+                    //Para evitar que seja escolhida outra vaga
+                    vagaSelecionada = true;
                     layout();
                     System.out.println("Seleção de vaga efetuada com sucesso");
                     for (int j = 0; j < 9; j++) {
@@ -317,7 +395,7 @@ public class Vagas {
         System.out.println("O que Deseja fazer?");
         System.out.println();
         System.out.println("1 - CADASTRAR VAGAS");
-        System.out.println("2 - ESCOLHER VAGAS");
+        System.out.println("2 - ESCOLHER VAGA");
         System.out.println("3 - LISTAR VAGAS");
         System.out.println("0 - Sair");
         int opcao = Menu.leia.nextInt();
@@ -345,9 +423,10 @@ public class Vagas {
     public static int[] reorganiza(vetorVagas[] infoVagas) {
         int[] vetornovo = new int[infoVagas.length];
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 9; i++) {
             if (infoVagas[i].codigoVaga == 0) {
                 infoVagas[i].codigoVaga = infoVagas[i + 1].codigoVaga;
+                infoVagas[i].tipoVaga = infoVagas[i + 1].tipoVaga;
                 infoVagas[i].descricao = infoVagas[i + 1].descricao;
                 infoVagas[i].empresa = infoVagas[i + 1].empresa;
                 infoVagas[i].local = infoVagas[i + 1].local;
@@ -357,9 +436,10 @@ public class Vagas {
             }
 
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 9; i++) {
             if (infoVagas[i].codigoVaga == infoVagas[i + 1].codigoVaga) {
                 infoVagas[i + 1].codigoVaga = 0;
+                infoVagas[i + 1].tipoVaga = 0;
                 infoVagas[i + 1].descricao = "";
                 infoVagas[i + 1].empresa = "";
                 infoVagas[i + 1].local = "";

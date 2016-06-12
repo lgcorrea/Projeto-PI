@@ -55,7 +55,6 @@ public class Checagem {
 
         } catch (java.util.InputMismatchException erro) {
             System.out.println("Aviso: Este Campo aceita apenas numeros");
-            layout();
             flagValor = false;
 
         }
