@@ -15,6 +15,7 @@ public class Menu {
         System.out.println("O que deseja fazer?");
         System.out.println(" 1 - CADASTRAR VAGAS");
         System.out.println(" 2 - VISUALIZAR VAGAS");
+        System.out.println(" 3 - BUSCAR VAGAS");
         System.out.println(" 0 - SAIR");
         int opcao = leia.nextInt();
         layout();
@@ -29,6 +30,8 @@ public class Menu {
             //AO DIGITAR 2 O SISTEMA INCIALIZA A FUNÇÃO ONDE IRÁ MOSTRAR AS VAGAS
                 Vagas.mostrarVagas();
                 break;
+            case 3:
+                RelatorioVagas.relatVagas();
             //AO DIGITAR 0 O SISTEMA IRA FECHAR.
             case 0:
                 layout();
